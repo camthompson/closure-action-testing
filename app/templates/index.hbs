@@ -1,0 +1,6 @@
+{{input type='text' value=newListName class='new-list-name'}}
+<button {{action 'createList'}} class='create-list'>Add List</button>
+
+{{#each lists as |list|}}
+  <div class='list'>{{list.name}}</div>
+{{/each}}
