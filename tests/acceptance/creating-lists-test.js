@@ -33,3 +33,27 @@ test('Creating lists', function(assert) {
                  'TV Shows list is shown');
   });
 });
+
+test('Adding entries to lists', function(assert) {
+  visit('/');
+  fillIn('.new-list-name', 'Groceries');
+  click('.create-list');
+  fillIn('.new-list-name', 'TV Shows');
+  click('.create-list');
+
+  fillIn(".list:contains('Groceries') .new-entry-name", 'Eggs');
+  click(".list:contains('Groceries') .add-entry");
+  fillIn(".list:contains('Groceries') .new-entry-name", 'Bacon');
+  click(".list:contains('Groceries') .add-entry");
+  fillIn(".list:contains('TV Shows') .new-entry-name", 'Seinfeld');
+  click(".list:contains('TV Shows') .add-entry");
+
+  andThen(function() {
+    assert.equal(find(".list:contains('Groceries') .entry:contains('Eggs')").length, 1,
+                 'Eggs are shown in groceries');
+    assert.equal(find(".list:contains('Groceries') .entry:contains('Bacon')").length, 1,
+                 'Bacon are shown in groceries');
+    assert.equal(find(".list:contains('TV Shows') .entry:contains('Seinfeld')").length, 1,
+                 'Seinfeld are shown in groceries');
+  });
+});
