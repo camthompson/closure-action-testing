@@ -21,4 +21,15 @@ test('Creating lists', function(assert) {
     assert.equal(find(".list:contains('TV Shows')").length, 1,
                  'TV Shows list is shown');
   });
+
+
+  click(".list:contains('Groceries') .remove-list");
+
+  andThen(function() {
+    assert.equal(find('.list').length, 1, 'All lists are shown');
+    assert.equal(find(".list:contains('Groceries')").length, 0,
+                 'Groceries list is removed');
+    assert.equal(find(".list:contains('TV Shows')").length, 1,
+                 'TV Shows list is shown');
+  });
 });

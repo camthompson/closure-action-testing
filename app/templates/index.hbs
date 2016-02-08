@@ -2,5 +2,5 @@
 <button {{action 'createList'}} class='create-list'>Add List</button>
 
 {{#each lists as |list|}}
-  <div class='list'>{{list.name}}</div>
+  {{x-list list=list remove=(action 'removeList')}}
 {{/each}}

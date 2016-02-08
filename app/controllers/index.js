@@ -17,6 +17,10 @@ export default Controller.extend({
       let name = this.get('newListName');
       this.store.createRecord('list', { name }).save();
       this.set('newListName', '');
+    },
+
+    removeList(list) {
+      list.destroyRecord();
     }
   }
 });
