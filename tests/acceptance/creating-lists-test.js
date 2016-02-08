@@ -56,4 +56,11 @@ test('Adding entries to lists', function(assert) {
     assert.equal(find(".list:contains('TV Shows') .entry:contains('Seinfeld')").length, 1,
                  'Seinfeld are shown in groceries');
   });
+
+  click(".entry:contains('Eggs') .remove-entry");
+
+  andThen(function() {
+    assert.equal(find(".list:contains('Groceries') .entry:contains('Eggs')").length, 0,
+                 'Eggs are removed from groceries');
+  });
 });

@@ -4,6 +4,9 @@
   {{input type='text' value=newEntryName class='new-entry-name'}}
   <button {{action 'addEntry'}} class='add-entry'>Add</button>
   {{#each list.entries as |entry|}}
-    <div class='entry'>{{entry.name}}</div>
+    <div class='entry'>
+      {{entry.name}}
+      <button {{action 'removeEntry' entry}} class='remove-entry'>&times;</button>
+    </div>
   {{/each}}
 </div>

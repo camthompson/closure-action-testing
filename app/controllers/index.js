@@ -25,6 +25,10 @@ export default Controller.extend({
 
     addEntry(list, name) {
       this.store.createRecord('entry', { list, name }).save();
+    },
+
+    removeEntry(entry) {
+      entry.destroyRecord();
     }
   }
 });

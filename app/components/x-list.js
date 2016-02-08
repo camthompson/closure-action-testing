@@ -13,6 +13,10 @@ export default Component.extend({
 
     remove() {
       this.attrs.remove(this.get('list'));
+    },
+
+    removeEntry(entry) {
+      this.attrs.removeEntry(entry);
     }
   }
 });

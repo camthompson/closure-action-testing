@@ -3,5 +3,6 @@
 
 {{#each lists as |list|}}
   {{x-list list=list remove=(action 'removeList')
-    addEntry=(action 'addEntry' list)}}
+    addEntry=(action 'addEntry' list)
+    removeEntry=(action 'removeEntry')}}
 {{/each}}
