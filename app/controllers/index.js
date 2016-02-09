@@ -25,16 +25,12 @@ export default Controller.extend({
       });
     },
 
-    removeList(list) {
-      list.destroyRecord();
+    remove(record) {
+      record.destroyRecord();
     },
 
     addEntry(list, name) {
       this.store.createRecord('entry', { list, name }).save();
-    },
-
-    removeEntry(entry) {
-      entry.destroyRecord();
     }
   }
 });

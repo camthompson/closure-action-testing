@@ -1,13 +1,12 @@
 <div class='list'>
   <h2>
     {{list.name}}
-    <button {{action 'remove'}} class='remove-list'>&times;</button>
+    <button onclick={{action 'remove' list}} class='remove-list'>
+      &times;
+    </button>
   </h2>
   {{#each list.entries as |entry|}}
-    <div class='entry'>
-      <button {{action 'removeEntry' entry}} class='remove-entry'>&minus;</button>
-      {{entry.name}}
-    </div>
+    {{x-entry entry=entry remove=(action 'remove' entry)}}
   {{/each}}
   <form>
     {{input type='text' value=newEntryName class='new-entry-name'}}

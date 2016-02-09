@@ -11,12 +11,8 @@ export default Component.extend({
       this.attrs.addEntry(name);
     },
 
-    remove() {
-      this.attrs.remove(this.get('list'));
-    },
-
-    removeEntry(entry) {
-      this.attrs.removeEntry(entry);
+    remove(record) {
+      this.attrs.remove(record);
     }
   }
 });
