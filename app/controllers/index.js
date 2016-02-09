@@ -13,10 +13,8 @@ export default Controller.extend({
   }),
 
   actions: {
-    createList() {
-      let name = this.get('newListName');
+    createList(name) {
       this.store.createRecord('list', { name }).save();
-      this.set('newListName', '');
     },
 
     removeList(list) {
