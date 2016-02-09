@@ -1,12 +1,16 @@
 <div class='list'>
-  {{list.name}}
-  <button {{action 'remove'}} class='remove-list'>&times;</button>
-  {{input type='text' value=newEntryName class='new-entry-name'}}
-  <button {{action 'addEntry'}} class='add-entry'>Add</button>
+  <h2>
+    {{list.name}}
+    <button {{action 'remove'}} class='remove-list'>&times;</button>
+  </h2>
   {{#each list.entries as |entry|}}
     <div class='entry'>
+      <button {{action 'removeEntry' entry}} class='remove-entry'>&minus;</button>
       {{entry.name}}
-      <button {{action 'removeEntry' entry}} class='remove-entry'>&times;</button>
     </div>
   {{/each}}
+  <form>
+    {{input type='text' value=newEntryName class='new-entry-name'}}
+    <button {{action 'addEntry'}} class='add-entry'>Add entry</button>
+  </form>
 </div>

@@ -1,5 +1,7 @@
-{{input type='text' value=newListName class='new-list-name'}}
-<button {{action 'createList'}} class='create-list'>Add List</button>
+<form>
+  {{input type='text' value=newListName class='new-list-name'}}
+  <button {{action 'createList'}} class='create-list'>Add list</button>
+</form>
 
 {{#each lists as |list|}}
   {{x-list list=list remove=(action 'removeList')
