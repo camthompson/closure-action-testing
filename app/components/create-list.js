@@ -10,7 +10,9 @@ export default Component.extend({
   actions: {
     createList() {
       let name = this.get('newListName');
-      this.attrs.create(name);
+      this.attrs.create(name).then(() => {
+        this.set('newListName', '');
+      });
     }
   }
 });

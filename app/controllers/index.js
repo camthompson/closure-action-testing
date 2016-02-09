@@ -14,7 +14,7 @@ export default Controller.extend({
 
   actions: {
     createList(name) {
-      this.store.createRecord('list', { name }).save();
+      return this.store.createRecord('list', { name }).save();
     },
 
     removeList(list) {
