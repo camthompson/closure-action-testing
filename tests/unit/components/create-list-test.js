@@ -1,6 +1,11 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
+const {
+  RSVP,
+  run
+} = Ember;
+
 moduleForComponent('create-list', { unit: true });
 
 test('It clears entry name on successful add', function(assert) {
@@ -9,12 +14,12 @@ test('It clears entry name on successful add', function(assert) {
   let attrs = {
     create(name) {
       assert.equal(name, 'TEST NAME LOL');
-      return Ember.RSVP.Promise.resolve();
+      return RSVP.Promise.resolve();
     }
   };
   let component = this.subject({ attrs });
 
-  Ember.run(function() {
+  run(function() {
     component.set('newListName', 'TEST NAME LOL');
     component.send('createList');
   });
@@ -28,12 +33,12 @@ test('It leaves entry name on failed add', function(assert) {
   let attrs = {
     create(name) {
       assert.equal(name, 'TEST NAME LOL');
-      return Ember.RSVP.Promise.reject();
+      return RSVP.Promise.reject();
     }
   };
   let component = this.subject({ attrs });
 
-  Ember.run(function() {
+  run(function() {
     component.set('newListName', 'TEST NAME LOL');
     component.send('createList');
   });

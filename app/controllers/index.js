@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 const {
   computed,
-  Controller
+  Controller,
+  RSVP
 } = Ember;
 
 export default Controller.extend({
@@ -19,7 +20,7 @@ export default Controller.extend({
         if (lists.length === 0) {
           return this.store.createRecord('list', { name }).save();
         } else {
-          return Ember.RSVP.reject();
+          return RSVP.reject();
         }
       });
     },
