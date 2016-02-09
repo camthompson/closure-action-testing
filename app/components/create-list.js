@@ -14,7 +14,7 @@ export default Component.extend({
       this.attrs.create(name).then(() => {
         this.set('newListName', '');
         this.set('showNameWarning', false);
-      }).catch(() => this.set('showNameWarning', true));
+      }, () => this.set('showNameWarning', true));
     }
   }
 });
