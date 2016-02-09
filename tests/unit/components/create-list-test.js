@@ -23,7 +23,7 @@ test('It clears entry name on successful add', function(assert) {
 });
 
 test('It leaves entry name on failed add', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   let attrs = {
     create(name) {
@@ -39,4 +39,5 @@ test('It leaves entry name on failed add', function(assert) {
   });
 
   assert.equal(component.get('newListName'), 'TEST NAME LOL');
+  assert.equal(component.get('showNameWarning'), true);
 });

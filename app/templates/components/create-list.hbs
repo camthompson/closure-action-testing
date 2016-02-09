@@ -1,3 +1,6 @@
+{{#if showNameWarning}}
+  <p class='list-name-warning'>Invalid list name!</p>
+{{/if}}
 <form>
   {{input type='text' value=newListName class='new-list-name'}}
   <button {{action 'createList'}} class='create-list'>Add list</button>

@@ -14,7 +14,14 @@ export default Controller.extend({
 
   actions: {
     createList(name) {
-      return this.store.createRecord('list', { name }).save();
+      let filter = { name };
+      return this.store.queryRecord('list', { filter }).then((lists) => {
+        if (lists.length === 0) {
+          return this.store.createRecord('list', { name }).save();
+        } else {
+          return Ember.RSVP.reject();
+        }
+      });
     },
 
     removeList(list) {

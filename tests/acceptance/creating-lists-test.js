@@ -64,3 +64,28 @@ test('Adding entries to lists', function(assert) {
                  'Eggs are removed from groceries');
   });
 });
+
+test('Creating two lists with the same name', function(assert) {
+  visit('/');
+  fillIn('.new-list-name', 'Groceries');
+  click('.create-list');
+  fillIn('.new-list-name', 'Groceries');
+  click('.create-list');
+
+  andThen(function() {
+    assert.equal(find(".list:contains('Groceries')").length, 1,
+                 'Only one groceries list is shown');
+    assert.equal(find('.list-name-warning').length, 1,
+                 'Warning about list name is shown');
+  });
+
+  fillIn('.new-list-name', 'Groceries 2');
+  click('.create-list');
+
+  andThen(function() {
+    assert.equal(find(".list:contains('Groceries 2')").length, 1,
+                 'Groceries 2 list is shown');
+    assert.equal(find('.list-name-warning').length, 0,
+                 'List name warning is hidden');
+  });
+});
