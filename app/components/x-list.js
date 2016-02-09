@@ -9,10 +9,6 @@ export default Component.extend({
     addEntry() {
       let name = this.get('newEntryName');
       this.attrs.addEntry(name);
-    },
-
-    remove(record) {
-      this.attrs.remove(record);
     }
   }
 });
