@@ -1,9 +1,0 @@
-{{create-list create=(action 'createList')}}
-
-{{#each lists as |list|}}
-  {{x-list
-    list=list
-    remove=(action 'remove')
-    addEntry=(action 'addEntry' list)
-  }}
-{{/each}}
